@@ -11,7 +11,7 @@ TV-B-Gone Attiny85 tool to ShutDown TVs
 - Wires
 - Breadboard
 - IR Transmit diode
-- Button (for original script)
+- Button -> I used switch to On / Off
 - Green LED diode (for original script)
 - 10uF capacitor (just for flash code to attiny85)
 
