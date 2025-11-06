@@ -14,8 +14,8 @@ TV-B-Gone Attiny85 tool to ShutDown TVs
 
 ## Original support EU and US IR codes
 - this has 2 options
-  - FIRST METHOD --> flash Original
-  - SECOND METHOD --> flash custom edited (like in this tutorial)
+  - FIRST METHOD --> flash Original [go here](./original/)
+  - SECOND METHOD --> flash custom edited [go here](./edited/)
 
 - capacitor not needed
 
@@ -45,6 +45,18 @@ git clone https://github.com/adafruit/TV-B-Gone-kit.git
 - in this case I will CHANGE from **US** to **EU** in file ```main.c``` and save changes
   - using ```nano main.c``` and  ```press CTRL W``` then type somethingh to search if you want to check out ...
   - **you can find edited files in this repo in folder ```TV-B-Gone-kit/firmware``` for simple flash**
+
 ## Flash file to Attiny85
 - ! double check wire connection (make sure everything is good) !
-- in linux terminal start command ```make program```
+- in linux terminal start command
+```
+make clean
+make Custom-tvbgone.hex
+make program
+```
+
+
+
+
+
+
