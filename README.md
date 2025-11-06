@@ -1,4 +1,4 @@
-# TV-B-Gone
+# Attiny85 simple setup for DIY TV-B-Gone
 TV-B-Gone Attiny85 tool to ShutDown TVs
 
 ## Setup
