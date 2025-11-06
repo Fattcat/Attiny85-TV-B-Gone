@@ -19,7 +19,7 @@ TV-B-Gone Attiny85 tool to ShutDown TVs
 
 - capacitor not needed
 
-![Attiny85 connection](attiny85-Schematic.jpg)
+![Attiny85 connection](attiny85-Schematic.png)
 
 ![Attiny85 pinout](attiny85.jpg)
 
