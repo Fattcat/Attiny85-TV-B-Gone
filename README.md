@@ -22,6 +22,12 @@ TV-B-Gone Attiny85 tool to ShutDown TVs
 
 - 10uF capacitor connect (+) to Arduino Uno RESET Pin, and (-) to GND
 
+## Some images
+
+<p align="center">
+  <img src="ArduinoUnoflashEditedAttiny85-TV-B-Gone.jpg" alt="Flashing to Attiny85" width="300">
+</p>
+
 ![Attiny85 connection](attiny85-Schematic.png)
 
 ![Attiny85 pinout](attiny85.jpg)
