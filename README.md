@@ -32,6 +32,8 @@ TV-B-Gone Attiny85 tool to ShutDown TVs
 
 ![Attiny85 pinout](attiny85.jpg)
 
+![Attiny85 pinout](attiny85.jpg)
+
 ```
 sudo apt install gcc-avr avr-libc avrdude make git binutils-avr libc6-dev
 ```
