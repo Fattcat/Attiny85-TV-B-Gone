@@ -28,9 +28,9 @@ TV-B-Gone Attiny85 tool to ShutDown TVs
   <img src="ArduinoUnoflashEditedAttiny85-TV-B-Gone.jpg" alt="Flashing to Attiny85" width="300">
 </p>
 
-![Attiny85 connection](attiny85-Schematic.png)
+![Attiny85 pinout](Attiny85-IR-TVB-Gone.jpg)
 
-![Attiny85 pinout](attiny85.jpg)
+![Attiny85 connection](attiny85-Schematic.png)
 
 ![Attiny85 pinout](attiny85.jpg)
 
