@@ -127,7 +127,7 @@ AVRDUDE_FLAGS = -p attiny85 -c $(AVRDUDE_PROGRAMMER) -P $(AVRDUDE_PORT) -b 19200
 ## ! DOUBLECHECK WIRES !
 
 ### Run:
-- compare your output with [this output on bottom](README.md).
+- compare your output with [this output on bottom](README.md#Output).
 ```
 make clean
 make
