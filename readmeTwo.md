@@ -1,31 +1,31 @@
-# 📺 TV-B-Gone pre ATtiny85 (Európska verzia)
+# 📺 TV-B-Gone for ATtiny85 (EU-Only Version)
 
-> Malé, batériou napájané zariadenie na vypínanie televízorov pomocou IR signálov.  
-> Táto verzia obsahuje **iba európske (EU) kódy**, je optimalizovaná pre **ATtiny85** a kompiluje sa pomocou štandardných nástrojov AVR-GCC na Linuxe.
-
----
-
-## 📦 Potrebné komponenty
-
-| Komponent | Množstvo | Poznámka |
-|----------|----------|---------|
-| ATtiny85 | 1 | DIP8 puzdro |
-| Arduino Uno | 1 | ako ISP programátor (iba dočasne) |
-| IR LED | 1 | napr. TSAL6200 alebo podobná |
-| Tlačidlo | 1 | momentálne (push-button) |
-| Kondenzátor | 1 | **10 µF elektrolytický**, 16 V+ |
-| Tranzistor (odporúčané) | 1 | napr. 2N2222, BC547 alebo PN2222A |
-| Rezistory | 2–3 | 100 Ω (IR LED), 1 kΩ (báza tranzistora), 220 Ω (LED – voliteľné) |
-| Napájanie | 2× AA batérie | 3 V (ideálne), alebo 3.3–5 V externý zdroj |
+> A tiny, battery-powered device that turns off TVs using IR signals.  
+> This version includes **only European (EU) power-off codes**, is optimized for **ATtiny85**, and compiles using standard AVR-GCC toolchains on Linux.
 
 ---
 
-## 🔌 Zapojenie
+## 📦 Required Components
 
-### 1. Programovanie (ATtiny85 → Arduino Uno ako ISP)
+| Component | Qty | Notes |
+|----------|-----|-------|
+| ATtiny85 | 1 | DIP-8 package preferred |
+| Arduino Uno | 1 | Used temporarily as ISP programmer |
+| IR LED | 1 | e.g., TSAL6200, TSAL7600 |
+| Push button | 1 | Momentary tactile switch |
+| Capacitor | 1 | **10 µF electrolytic**, 16 V+ |
+| Transistor (recommended) | 1 | e.g., 2N2222, BC547, or PN2222A |
+| Resistors | 2–3 | 100 Ω (IR LED), 1 kΩ (transistor base), 220 Ω (status LED, optional) |
+| Power source | 2× AA batteries | 3 V (ideal), or 3.3–5 V external supply |
 
-| ATtiny85 (fyz. pin) | Názov | Arduino Uno |
-|---------------------|-------|-------------|
+---
+
+## 🔌 Wiring
+
+### 1. Programming (ATtiny85 → Arduino Uno as ISP)
+
+| ATtiny85 (physical pin) | Name | Arduino Uno |
+|-------------------------|------|-------------|
 | 1 | RESET | Pin 10 |
 | 4 | GND | GND |
 | 5 | **PB0 (IRLED)** | Pin 11 (MOSI) |
@@ -33,30 +33,31 @@
 | 7 | PB2 (SCK) | Pin 13 |
 | 8 | VCC | **5 V** |
 
-> ⚠️ **Nezabudni na 10 µF kondenzátor** medzi **RESET a GND na Uno** (– na GND, + na RESET). Bez neho sa Uno resetuje pri otvorení portu.
+> ⚠️ **Critical**: Add a **10 µF capacitor** between **Uno’s RESET and GND** (– to GND, + to RESET).  
+> Without it, the Uno resets when avrdude opens the serial port.
 
 ---
 
-### 2. Prevádzka (samostatné zariadenie)
+### 2. Standalone Operation
 
-| ATtiny85 | Komponent |
-|---------|-----------|
-| Pin 1 (RESET) | → tlačidlo → GND |
-| Pin 5 (PB0) | → 100 Ω → **anóda IR LED** → **katóda IR LED** → GND  
-| *(alebo lepšie)* | → 1 kΩ → báza tranzistora (2N2222), emitor → GND, kolektor → katóda IR LED, anóda IR LED → VCC |
+| ATtiny85 | Connection |
+|---------|------------|
+| Pin 1 (RESET) | → Push button → GND |
+| Pin 5 (PB0) | → 100 Ω → **IR LED anode** → **IR LED cathode** → GND  
+| *(better option)* | → 1 kΩ → transistor base (2N2222), emitter → GND, collector → IR LED cathode, IR LED anode → VCC |
 | Pin 8 | VCC (3–5 V) |
 | Pin 4 | GND |
 
-> 💡 LED indikátor (voliteľný): Pin 7 (PB2) → 220 Ω → LED → GND
+> 💡 Optional status LED: Pin 7 (PB2) → 220 Ω → LED → GND
 
 ---
 
-## 🐧 Príprava vývojového prostredia (Linux: Kali/Ubuntu/Debian)
+## 🐧 Setup (Linux: Kali/Ubuntu/Debian)
 
 ```bash
-# 1. Nainštaluj potrebné nástroje
+# 1. Install toolchain
 sudo apt update && sudo apt install -y gcc-avr avr-libc avrdude make git
 
-# 2. Stiahni zdrojový kód
+# 2. Clone firmware
 git clone https://github.com/adafruit/TV-B-Gone-kit.git
 cd TV-B-Gone-kit/firmware
