@@ -61,3 +61,107 @@ sudo apt update && sudo apt install -y gcc-avr avr-libc avrdude make git
 # 2. Clone firmware
 git clone https://github.com/adafruit/TV-B-Gone-kit.git
 cd TV-B-Gone-kit/firmware
+```
+
+## ✏️ Code Modification (EU-Only)
+
+- Edit main.c:
+- Find this:
+  - ```uint8_t region = US;```
+- Replace with:
+  - const uint8_t region = EU;
+
+- Comment out region detection:
+```
+// if (PINB & _BV(REGIONSWITCH)) {
+//   region = US;
+// } else {
+//   region = EU;
+// }
+```
+
+- In the transmission loop, find>
+```
+if (region == US) {
+  j = num_NAcodes;
+} else {
+  j = num_EUcodes;
+}
+```
+
+- Replace with:
+  - ```j = num_EUcodes;```
+
+- Later, find:
+```
+if (region == US) {
+  code_ptr = (PGM_P)pgm_read_word(NApowerCodes+i);
+} else {
+  code_ptr = (PGM_P)pgm_read_word(EUpowerCodes+i);
+}
+```
+
+- Replace with:
+
+```
+code_ptr = (PGM_P)pgm_read_word(EUpowerCodes+i);
+```
+
+## ⚙️ Configure Makefile
+- Update these lines:
+```
+AVRDUDE_PROGRAMMER = arduino
+AVRDUDE_PORT = /dev/ttyACM0
+AVRDUDE_FLAGS = -p attiny85 -c $(AVRDUDE_PROGRAMMER) -P $(AVRDUDE_PORT) -b 19200
+```
+- 🔍 Verify port with:
+- ```ls /dev/ttyACM* /dev/ttyUSB* 2>/dev/null```
+
+## 📤 Flash Firmware
+
+- Upload ArduinoISP to Uno via Arduino IDE (ON WINDOWS)
+- File → Examples → 11.ArduinoISP → ArduinoISP)
+- Connect 10 µF capacitor (RESET–GND on Uno)
+- Wire ATtiny85 as above (check main README.md images) [here](README.md).
+
+## ! DOUBLECHECK WIRES !
+
+### Run:
+- compare your output with [this output on bottom](README.md).
+```
+make clean
+make
+make program
+```
+
+- ✅ Success output:
+- Something like this
+```
+avrdude: 7838 bytes of flash verified
+avrdude done. Thank you.
+```
+
+- after sucessful flashing, Disconnect arduino uno from PC & attiny85
+- connect IR diode, Power attiny85 with 5V (can be 3.3V or 5V)
+- Point IR at TV, press button --> Boom it shlould Power it OFF
+- Thanks for reading
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
