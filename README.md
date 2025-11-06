@@ -11,13 +11,14 @@ TV-B-Gone Attiny85 tool to ShutDown TVs
 - IR Transmit diode
 - Button (for original script)
 - Green LED diode (for original script)
+- 10uF capacitor (just for flash code to attiny85)
 
 ## Original support EU and US IR codes
 - this has 2 options
   - FIRST METHOD --> flash Original [go here](./original/)
   - SECOND METHOD --> flash custom edited [go here](./edited/)
 
-- capacitor not needed
+- 10uF capacitor connect (+) to Arduino Uno RESET Pin, and (-) to GND
 
 ![Attiny85 connection](attiny85-Schematic.png)
 
