@@ -15,6 +15,8 @@ sudo apt install gcc-avr avr-libc avrdude make git binutils-avr libc6-dev
 - navigate to **edited** folder and download zip in Linux PC
 - unzip it, navigae to that unziped folder to ```/firmware/```
 - paste this to terminal
+- For check use ```avrdude -p attiny85 -c arduino -P /dev/ttyACM0 -b 19200 -v``` and hit enter
+- If you see ```device signature = 0x1e930b```  in output, then everithing is good to go
 ```
 make clean
 make
