@@ -27,7 +27,7 @@
 ### 1. Programming (ATtiny85 → Arduino Uno as ISP)
 
 <p align="center">
-  <img src="attiny85-Schematic.png" alt="Flashing to Attiny85" width="300">
+  <img src="attiny85-Schematic.png" alt="Flashing to Attiny85" width="500">
 </p>
 
 | ATtiny85 (physical pin) | Name | Arduino Uno |
