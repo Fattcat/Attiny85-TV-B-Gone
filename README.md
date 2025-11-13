@@ -77,6 +77,12 @@ make program
   - static discharge by human hand
   - something else probbly ...
 
+- also there is voltage booster (stupidly placed on my prototype PCB) to ensure powering with 5.2Volts attiny85 for increasing Transmit distance of IR diode (it could help to increase maybe 2 meters instead of 3.3Volts power supply or directly from battery)
+- Switch (start transmitting codes / Off)
+- Another switch to ensure just delivering power
+
+- Everything in this hardware setup cost about ~ 12€ or ~ 14$
+
 ```
 sudo apt install gcc-avr avr-libc avrdude make git binutils-avr libc6-dev
 ```
