@@ -70,6 +70,13 @@ make program
 |:----------:|:----------:|
 | ![All on PCB](TV-B-Pcb1.jpg) | ![All on PCB 2](TV-B-Pcb2.jpg) |
 
+- on both images you can see UGLY but functional TV-B Gone device
+- if you dont see it properly, there is Lipo tp4056 module for charging battery, that *RED* foil is just cover for Attiny85 protecting from dust or human fingers to prevent:
+  - early damage,
+  - short circuits (prevents from metal plate),
+  - static discharge by human hand
+  - something else probbly ...
+
 ```
 sudo apt install gcc-avr avr-libc avrdude make git binutils-avr libc6-dev
 ```
